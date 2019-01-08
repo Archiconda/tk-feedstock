@@ -1,4 +1,8 @@
 BUILD: aarch64-conda_cos7-linux-gnu
+cdt_arch: aarch64
+cdt_name: cos7
+cpu_optimization_target: nocona
+target_platform: linux-aarch64
 c_compiler:
 - gcc
 channel_sources:
