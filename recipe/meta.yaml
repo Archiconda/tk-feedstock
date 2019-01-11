@@ -8,10 +8,10 @@ package:
 source:
   - url: https://downloads.sourceforge.net/tcl/tcl{{ version }}-src.tar.gz
     folder: tcl{{ version }}
-    sha256: 04abaa207f4bf4f453bea5bbdbcf6cf4bcdba3ed1c5160bfd732c6b8c70c6269
+    # sha256: 04abaa207f4bf4f453bea5bbdbcf6cf4bcdba3ed1c5160bfd732c6b8c70c6269
   - url: https://downloads.sourceforge.net/tcl/tk{{ version }}-src.tar.gz
     folder: tk{{ version }}
-    sha256: f8ecce4a176e04870ba096971c3d12a3d78d4d3745337bc67dd947786e4c191c
+    # sha256: f8ecce4a176e04870ba096971c3d12a3d78d4d3745337bc67dd947786e4c191c
 
 build:
   number: 1000
