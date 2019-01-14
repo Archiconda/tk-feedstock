@@ -15,7 +15,7 @@ env:
 build:
   pre_ci_boot:
     # It really doesn't like the centos image.....
-    image_name: archiconda/centos
+    image_name: archiconda/centos7
     image_tag: 'builder'
 
     # image_name: arm64v8/ubuntu
