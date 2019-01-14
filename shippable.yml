@@ -15,11 +15,11 @@ env:
 build:
   pre_ci_boot:
     # It really doesn't like the centos image.....
-    # image_name: arm64v8/centos
-    # tag_name: 7
+    image_name: archiconda/centos
+    image_tag: 'builder'
 
-    image_name: arm64v8/ubuntu
-    image_tag: 18.04
+    # image_name: arm64v8/ubuntu
+    # image_tag: 18.04
     pull: True
 
   ci:
@@ -28,23 +28,23 @@ build:
     # - export LC_ALL=en_US.UTF-8
     # - yum install -y file libX11 ibXau libxcb libXdmcp libXext libXrender libXt mesa-libGL mesa-libGLU openssh-clients patch rsync util-linux wget which bzip2 xorg-x11-server-Xvfb curl
     # Need to install bzip2 for conda
-    - apt-get update
+    # - apt-get update
     # bzip2 is necessary for conda installers to get executed
     # curl is necessary to download them
-    - apt-get install -y bzip2 curl locales
+    # - apt-get install -y bzip2 curl locales
 
-    - locale-gen en_US en_US.UTF-8
-    - dpkg-reconfigure --frontend=noninteractive locales
+    # - locale-gen en_US en_US.UTF-8
+    # - dpkg-reconfigure --frontend=noninteractive locales
 
     # Remove binutils binaries becuase you can't install centos7 without them.
     # Ubuntu doesn't seem to have them but this command doesn't hurt
-    - rm -f /usr/bin/{ar,addr2line,as,c++filt,dwp,elfedit,gprof,ld,ld.bfd,ld.gold,nm,objcopy,objdump,ranlib,readlef,size,strings,strip}
+    # - rm -f /usr/bin/{ar,addr2line,as,c++filt,dwp,elfedit,gprof,ld,ld.bfd,ld.gold,nm,objcopy,objdump,ranlib,readlef,size,strings,strip}
 
-    - curl -L -O https://github.com/Archiconda/build-tools/releases/download/0.2.2/Archiconda3-0.2.2-Linux-aarch64.sh
-    - bash Archiconda3*.sh -b -p /root/archiconda3
-    - export PATH="/root/archiconda3/bin:${PATH}"
-    - source /root/archiconda3/bin/activate root
-    - conda install conda conda-build anaconda-client
+    # - curl -L -O https://github.com/Archiconda/build-tools/releases/download/0.2.2/Archiconda3-0.2.2-Linux-aarch64.sh
+    # - bash Archiconda3*.sh -b -p /root/archiconda3
+    # - export PATH="/root/archiconda3/bin:${PATH}"
+    # - source /root/archiconda3/bin/activate root
+    # - conda install conda conda-build anaconda-client
 
     # This breaks a circular dependecy between pip and python
     # https://github.com/ContinuumIO/anaconda-issues/issues/8695
